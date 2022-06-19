@@ -389,7 +389,7 @@ h3.my-profession {
     font-weight: 400;
     color: var(--text-black-700);
     margin-left: 4px;
-    display: inline-block;
+    display: block;
 }
 
 .about .about-content .personal-info .buttons {
@@ -753,7 +753,27 @@ h3.my-profession {
     }
 
     .home .home-img {
-        display: none;
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin: 0 auto;
+    }
+
+    .home-img::after {
+        height: 60px;
+        width: 60px;
+        right: 40px;
+        bottom: -40px;
+    }
+    
+    .home-img::before {
+        height: 60px;
+        width: 60px;
+        left: 40px;
+        top: 0;
+    }
+
+    .home .home-img img {
+        margin: 40px auto 0;
     }
 
     .service .service-item,
@@ -765,15 +785,33 @@ h3.my-profession {
 }
 
 @media (max-width: 770px) {
+
+    .home-img::after,
+    .home-img::before {
+        display: none;
+    }
+
+    .home .home-img img {
+        height: 250px;
+    }
+
     .about .about-content .education,
     .about .about-content .experience,
     .about .about-content .skills,
     .about .about-content .personal-info,
+    .about .about-content .personal-info .info-item,
     .service .service-item,
     .portfolio .portfolio-item,
     .contact .contact-info-item,
     .contact .contact-form .col-6 {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+
+    h3.my-profession {
+        height: 90px;
     }
 }
